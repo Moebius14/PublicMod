@@ -126,7 +126,7 @@ Func CheckSwitchAcc($IsPurging = False)
 		If IsWaitforHeroesActive() Then CheckWaitHero() ; update $g_aiTimeTrain[2]
 
 		$g_aiTimeTrain[3] = 0
-		If IsWaitforSiegeMachine() Then ; update $g_aiTimeTrain[2]
+		If IsWaitforSiegeMachine() Then ; update $g_aiTimeTrain[3]
 			OpenArmyTab(False, "SmartWait4Train()") ; Open train overview
 			Local $sSiegeInfo = getSiegeCampCap(707, 168 + $g_iMidOffsetY, True) ; OCR read Siege built and total
 			If $g_bDebugSetLogTrain Then SetLog("OCR $sSiegeInfo = " & $sSiegeInfo, $COLOR_DEBUG)

@@ -8,6 +8,8 @@
 * Fixed Array Bounds Error when $g_bSearchRestartPickupHero.
 * Added Support for the new TOS and Personnal datas sharing Windows.
 * Updated Wall Cost.
+* Added support for new Survey Window.
+* Added missing code in SmartWaitTrain function.
 
 * v8.1.9 **
 * Fixed Icon File

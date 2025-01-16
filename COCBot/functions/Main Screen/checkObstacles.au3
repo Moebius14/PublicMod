@@ -108,6 +108,17 @@ Func _checkObstacles($bBuilderBase = False, $bRecursive = False) ;Checks if some
 		EndIf
 	EndIf
 
+	If UBound(decodeSingleCoord(FindImageInPlace2("Survey", $g_sImgSurvey, 370, 40, 500, 90, False))) > 1 Then
+		Local $NoThanksButton = decodeSingleCoord(FindImageInPlace2("NoThanksButton", $g_sImgNoThanks, 190, 410 + $g_iMidOffsetY, 340, 465 + $g_iMidOffsetY, False))
+		If IsArray($NoThanksButton) And UBound($NoThanksButton) = 2 Then
+			SetLog("Detected Survey Window!", $COLOR_INFO)
+			ClickP($NoThanksButton)
+			If _Sleep($DELAYCHECKOBSTACLES1) Then Return
+			$g_bMinorObstacle = True
+			Return False
+		EndIf
+	EndIf
+
 	If UBound(decodeSingleCoord(FindImageInPlace2("Maintenance", $g_sImgMaintenance, 250, 40, 500, 100 + $g_iMidOffsetY, False))) > 1 Then ; Maintenance Break
 		$Result = getOcrMaintenanceTime(285, 581 + $g_iMidOffsetY, "Check Obstacles OCR Maintenance Break=") ; OCR text to find wait time
 		Local $iMaintenanceWaitTime = 0
